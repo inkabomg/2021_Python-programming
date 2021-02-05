@@ -15,7 +15,7 @@ print(carInfo)
 carInfo["color"] = "red"
 print(carInfo)
 
-# Changing key's value
+# Changing key's value (updating it)
 carInfo["year"] = 2011
 print(carInfo)
 

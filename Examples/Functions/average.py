@@ -50,6 +50,8 @@ def average(numbers, printResult: bool = True):
 
     return average # Function's return value = output.
 
+avg = average ([1, 2, 3, 4])
+
 # Python does not support main function but with the code below we can 
 # implement a similar functionality 
 if __name__ == "__main__":

@@ -1,5 +1,4 @@
-from cpuplayer import CPUPlayer
-from humanplayer import HumanPlayer
+from player import HumanPlayer, CPUPlayer
 import random
 
 class RockPaperScissors():
@@ -12,6 +11,7 @@ class RockPaperScissors():
 
     def create_player(self):
         if self.human:
+            # Asking for player's name
             name = input("Please enter your name: ")
             return name
 
@@ -52,7 +52,7 @@ class RockPaperScissors():
         print ("{}: {}".format(self.computer, cpu_hand))
 
     def display_winner(self, winner):
-        print ("{} wins!" .format(self.winner))
+        print ("{} wins!".format(self.winner))
 
 if __name__ == "__main__":
     while True:

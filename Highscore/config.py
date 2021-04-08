@@ -5,7 +5,7 @@ import binascii
 import sys
 
 # You can add all kind of config values to this file, e.g. CSV separator and file path
-PATH = "/home/<tunnus>/cgi-data/scores.csv"
+PATH = "/Users/inkalagerbom/Desktop/TAMK/1. vuosi/Kevät 2021/4A00EZ53-3005 Python/Highscore/scores.csv"
 SEP = ";"
 MAX = 10
 

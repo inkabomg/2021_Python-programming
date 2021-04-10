@@ -3,6 +3,7 @@
 import cgi
 import cgitb
 import os
+import csv, json
 # TODO: Lisää tarvittavat moduulit
 
 # Poista tämä rivi, kun sovellus on valmis. Tuotantokäytössä emme halua koskaan paljastaa koodissa

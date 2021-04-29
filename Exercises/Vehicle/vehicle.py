@@ -40,7 +40,38 @@ class Vehicle:
         Esimerkiksi jos ajoneuvon nopeus on kaksi, mutta kulkusuunnassa on vain yksi ruutu maastoa, jossa
         ajoneuvo voi kulkea, liikkuu ajoneuvo vain yhden ruudun.
     '''
-    pass
+    # 1. Otetaan ajoneuvon nykyinen sijainti talteen
+    targetPosition = self.position
+
+    # 2. Silmukassa selvitä ruutu kerrallaan, voiko ajoneuvo liikkua siihen
+    # (pyrkii liikkumaan nopeuden verran ruutuja)
+    for step in range(1, self.speed + 1):
+      # Selvitetään koordniaatti liikkumisen jälkeen
+      if direction == Direction.UP:
+        x = targetPosition[0]
+        y = targetPosition[1] -1
+      elif direction == Direction.DOWN:
+        x = targetPosition[0]
+        y = targetPosition[1] + 1
+      elif direction == Direction.LEFT:
+        x = targetPosition[0] -1
+        y = targetPosition[1]
+      elif direction == Direction.RIGHT:
+        x = targetPosition[0] + 1
+        y = targetPosition[1]
+
+      targetTerrain = map.GetTerrainAt(x - 1, y - 1)
+      if targetTerrain == Terrain.NONE:
+        return # Arvo NONE tarkoittaa, että yritettiin liikkua kartan ulkouolelle
+      
+      # Jos kohderuudussa ei ole sallittua maastoa, poistu funktiosta
+      if targetTerrain not in self.allowedTerrains:
+        return
+
+      # Liikutaan sallittuun maastoon, päivitetään ajoneuvon sijainti
+      targetPosition = (x, y)
+      self.position = targetPosition
+
 
 class Car(Vehicle):
     def __init__(self, x, y):
@@ -51,7 +82,6 @@ class Car(Vehicle):
     def InitAllowedTerrains(self):
         self.allowedTerrains = [Terrain.GROUND]
 
-
 class Plane(Vehicle):
     def __init__(self, x, y):
         super().__init__(3, x, y)
@@ -60,7 +90,6 @@ class Plane(Vehicle):
 
     def InitAllowedTerrains(self):
         self.allowedTerrains = [Terrain.GROUND, Terrain.WATER]
-
 
 class Boat(Vehicle):
     def __init__(self, x, y):

@@ -43,8 +43,6 @@ print(power(3,2)) # 9
 # jaollinen muilla positiivisilla kokonaisluvuilla kuin yhdellä
 # ja itsellään" (Wikipedia, https://fi.wikipedia.org/wiki/Alkuluku)
 
-# print("Prime numbers between", lower, "and", upper, "are:")
-
 def primeNumber(num):
 
     for num in range(2, num + 1):
@@ -54,7 +52,7 @@ def primeNumber(num):
                 if (num % i) == 0:
                     break
             else:
-                print(num, sep=',', end=' ')
+                print(num, end=' ')
 
 
 primeNumber(20) # Output: 2 3 5 7 11 13 17 19
